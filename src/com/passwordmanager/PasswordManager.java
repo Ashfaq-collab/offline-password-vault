@@ -8,9 +8,15 @@ public class PasswordManager {
 
     private ArrayList<PasswordEntry> entries;
 
+    private VaultStorage storage;
+
     public PasswordManager() {
-        entries = new ArrayList<>();
-        nextId = 1;
+
+        storage = new VaultStorage();
+
+        entries = storage.load();
+
+        nextId = calculateNextId();
     }
 
     public void addPassword(String website, String username, String password) {
@@ -23,6 +29,8 @@ public class PasswordManager {
         entries.add(entry);
 
         nextId++;
+
+        storage.save(entries);
 
         System.out.println("Password added successfully!");
     }
@@ -76,11 +84,27 @@ public class PasswordManager {
 
                 entries.remove(entry);
 
+                storage.save(entries);
+
                 System.out.println("Password deleted successfully!");
                 return;
             }
         }
 
         System.out.println("Password with ID " + id + " not found.");
+    }
+
+    private int calculateNextId() {
+
+        int maxId = 0;
+
+        for (PasswordEntry entry : entries) {
+
+            if (entry.getId() > maxId) {
+                maxId = entry.getId();
+            }
+        }
+
+        return maxId + 1;
     }
 }
