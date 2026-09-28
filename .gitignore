@@ -1,0 +1,21 @@
+# Compiled Java files
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# Password vault data
+vault.dat
+
+# OS files
+.DS_Store
+Thumbs.db
