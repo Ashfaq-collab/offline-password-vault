@@ -7,7 +7,7 @@
 
 # Password vault data
 vault.dat
-
+master.dat
 # OS files
 .DS_Store
 Thumbs.db

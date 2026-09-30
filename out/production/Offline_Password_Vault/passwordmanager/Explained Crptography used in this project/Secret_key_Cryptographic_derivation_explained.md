@@ -19,8 +19,8 @@ Without a salt, the same password produces the same hash. So,
 with a random salt, the derived values differ even when the passwords are identical.
 
 
-
-This code is used to **convert a password into a secure cryptographic key** using **PBKDF2 + HMAC-SHA256**.
+deriveKey() inside MasterPasswordManager.java is explained:
+deriveKey() is  used to **convert a password into a secure cryptographic key** using **PBKDF2 + HMAC-SHA256**.
 
 ### First, the big picture
 
