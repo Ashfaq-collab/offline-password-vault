@@ -1,5 +1,7 @@
 package passwordmanager;
 
+import javax.crypto.SecretKey;
+import java.util.Base64;
 import java.util.Scanner;
 
 public class Main {
