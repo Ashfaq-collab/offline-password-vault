@@ -98,6 +98,17 @@ public class Main {
 
             System.out.print("\nEnter your choice: ");
 
+            if (!scanner.hasNextInt()) {
+
+                System.out.println(
+                        "Invalid input. Please enter a number."
+                );
+
+                scanner.nextLine();
+
+                continue;
+            }
+
             int choice = scanner.nextInt();
             scanner.nextLine();
 
