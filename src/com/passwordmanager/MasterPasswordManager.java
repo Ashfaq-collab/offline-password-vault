@@ -143,4 +143,15 @@ public class MasterPasswordManager {
 
         return salt != null && passwordHash != null;
     }
+
+    public byte[] deriveEncryptionKey(String password) {
+
+        if (salt == null) {
+            throw new IllegalStateException(
+                    "Master password data is not loaded."
+            );
+        }
+
+        return deriveKey(password, salt);
+    }
 }

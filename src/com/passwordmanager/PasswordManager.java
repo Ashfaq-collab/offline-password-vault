@@ -1,5 +1,6 @@
 package passwordmanager;
 
+import javax.crypto.SecretKey;
 import java.util.ArrayList;
 
 public class PasswordManager {
@@ -10,9 +11,9 @@ public class PasswordManager {
 
     private VaultStorage storage;
 
-    public PasswordManager() {
+    public PasswordManager(SecretKey key) {
 
-        storage = new VaultStorage();
+        storage = new VaultStorage(key);
 
         entries = storage.load();
 

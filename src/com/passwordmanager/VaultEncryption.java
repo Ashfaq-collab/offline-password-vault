@@ -39,7 +39,7 @@ public class VaultEncryption {
     }
 
     public byte[] encrypt(
-            String plainText,
+            byte[] data,
             SecretKey key,
             byte[] iv) {
 
@@ -57,9 +57,7 @@ public class VaultEncryption {
                     spec
             );
 
-            return cipher.doFinal(
-                    plainText.getBytes()
-            );
+            return cipher.doFinal(data);
 
         } catch (Exception e) {
 
@@ -70,7 +68,7 @@ public class VaultEncryption {
         }
     }
 
-    public String decrypt(
+    public byte[] decrypt(
             byte[] encryptedData,
             SecretKey key,
             byte[] iv) {
@@ -89,10 +87,7 @@ public class VaultEncryption {
                     spec
             );
 
-            byte[] decrypted =
-                    cipher.doFinal(encryptedData);
-
-            return new String(decrypted);
+            return cipher.doFinal(encryptedData);
 
         } catch (Exception e) {
 
