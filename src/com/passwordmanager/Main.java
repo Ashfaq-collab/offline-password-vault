@@ -158,6 +158,15 @@ public class Main {
                     System.out.print("Enter website to search: ");
                     String keyword = scanner.nextLine();
 
+                    if (keyword.isBlank()) {
+
+                        System.out.println(
+                                "Search keyword cannot be empty."
+                        );
+
+                        break;
+                    }
+
                     manager.searchPassword(keyword);
 
                     break;
