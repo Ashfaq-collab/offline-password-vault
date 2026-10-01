@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
         MasterPasswordManager master =
@@ -79,6 +78,9 @@ public class Main {
         PasswordManager manager =
                 new PasswordManager(key);
 
+        PasswordGenerator generator =
+                new PasswordGenerator();
+
         boolean running = true;
 
         while (running) {
@@ -91,7 +93,8 @@ public class Main {
             System.out.println("2. View Passwords");
             System.out.println("3. Search Password");
             System.out.println("4. Delete Password");
-            System.out.println("5. Exit");
+            System.out.println("5. Generate Password");
+            System.out.println("6. Exit");
 
             System.out.print("\nEnter your choice: ");
 
@@ -147,8 +150,39 @@ public class Main {
                     manager.deletePassword(id);
 
                     break;
-
                 case 5:
+
+                    System.out.println(
+                            "\n--- Password Generator ---"
+                    );
+
+                    System.out.print(
+                            "Enter password length: "
+                    );
+
+                    int length = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (length < 8) {
+
+                        System.out.println(
+                                "Password length should be at least 8."
+                        );
+
+                        break;
+                    }
+
+                    String generatedPassword =
+                            generator.generatePassword(length);
+
+                    System.out.println(
+                            "Generated Password: "
+                                    + generatedPassword
+                    );
+
+                    break;
+
+                case 6:
                     System.out.println("\nExiting Password Vault...");
                     running = false;
 
