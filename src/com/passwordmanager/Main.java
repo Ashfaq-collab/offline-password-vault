@@ -166,6 +166,16 @@ public class Main {
                     System.out.println("\n--- Delete Password ---");
 
                     System.out.print("Enter ID to delete: ");
+                    if (!scanner.hasNextInt()) {
+
+                        System.out.println(
+                                "Invalid input. Please enter a number."
+                        );
+
+                        scanner.nextLine();
+
+                        break;
+                    }
                     int id = scanner.nextInt();
                         scanner.nextLine();
 
