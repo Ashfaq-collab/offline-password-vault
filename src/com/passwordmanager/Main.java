@@ -182,6 +182,17 @@ public class Main {
                             "Enter password length: "
                     );
 
+                    if (!scanner.hasNextInt()) {
+
+                        System.out.println(
+                                "Invalid input. Please enter a number."
+                        );
+
+                        scanner.nextLine();
+
+                        break;
+                    }
+
                     int length = scanner.nextInt();
                     scanner.nextLine();
 
