@@ -95,6 +95,33 @@ public class PasswordManager {
         System.out.println("Password with ID " + id + " not found.");
     }
 
+    public void editPassword(
+            int id,
+            String website,
+            String username,
+            String password) {
+
+        for (PasswordEntry entry : entries) {
+            if (entry.getId() == id) {
+                entry.setWebsite(website);
+                entry.setUsername(username);
+                entry.setPassword(password);
+
+                storage.save(entries);
+
+                System.out.println(
+                        "Password updated successfully!"
+                );
+
+                return;
+            }
+        }
+
+        System.out.println(
+                "Password with ID " + id + " not found."
+        );
+    }
+
     private int calculateNextId() {
 
         int maxId = 0;

@@ -94,7 +94,8 @@ public class Main {
             System.out.println("3. Search Password");
             System.out.println("4. Delete Password");
             System.out.println("5. Generate Password");
-            System.out.println("6. Exit");
+            System.out.println("6. Edit Password");
+            System.out.println("7. Exit");
 
             System.out.print("\nEnter your choice: ");
 
@@ -300,6 +301,48 @@ public class Main {
                     break;
 
                 case 6:
+
+                    System.out.println(
+                            "\n--- Edit Password ---"
+                    );
+
+                    System.out.print(
+                            "Enter ID to edit: "
+                    );
+
+                    if (!scanner.hasNextInt()) {
+
+                        System.out.println(
+                                "Invalid input. Please enter a number."
+                        );
+
+                        scanner.nextLine();
+
+                        break;
+                    }
+
+                    int editId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter new website: ");
+                    String newWebsite = scanner.nextLine();
+
+                    System.out.print("Enter new username: ");
+                    String newUsername = scanner.nextLine();
+
+                    System.out.print("Enter new password: ");
+                    String newPassword = scanner.nextLine();
+
+                    manager.editPassword(
+                            editId,
+                            newWebsite,
+                            newUsername,
+                            newPassword
+                    );
+
+                    break;
+
+                case 7:
                     System.out.println("\nExiting Password Vault...");
                     running = false;
 

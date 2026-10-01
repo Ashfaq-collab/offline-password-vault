@@ -18,6 +18,16 @@ public class PasswordEntry implements Serializable {
         this.password = password;
     }
 
+    public void setWebsite(String website){
+        this.website=website;
+    }
+    public void setPassword(String password){
+        this.password=password;
+    }
+    public void setUsername(String username){
+        this.username=username;
+    }
+
     public int getId() {
         return id;
     }
