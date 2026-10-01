@@ -115,6 +115,17 @@ public class Main {
                     System.out.print("Enter password: ");
                     String password = scanner.nextLine();
 
+                    if (website.isBlank() ||
+                            username.isBlank() ||
+                            password.isBlank()) {
+
+                        System.out.println(
+                                "Website, username, and password cannot be empty."
+                        );
+
+                        break;
+                    }
+
                     manager.addPassword(
                             website,
                             username,
