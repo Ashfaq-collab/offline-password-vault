@@ -123,8 +123,73 @@ public class Main {
                     System.out.print("Enter username: ");
                     String username = scanner.nextLine();
 
-                    System.out.print("Enter password: ");
-                    String password = scanner.nextLine();
+                    System.out.println("1. Enter password manually");
+                    System.out.println("2. Generate password");
+
+                    System.out.print("Choose an option: ");
+
+                    if (!scanner.hasNextInt()) {
+
+                        System.out.println(
+                                "Invalid input. Please enter a number."
+                        );
+
+                        scanner.nextLine();
+
+                        break;
+                    }
+
+                    int passwordChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String password;
+
+                    if (passwordChoice == 1) {
+
+                        System.out.print("Enter password: ");
+                        password = scanner.nextLine();
+
+                    } else if (passwordChoice == 2) {
+
+                        System.out.print("Enter password length: ");
+
+                        if (!scanner.hasNextInt()) {
+
+                            System.out.println(
+                                    "Invalid input. Please enter a number."
+                            );
+
+                            scanner.nextLine();
+
+                            break;
+                        }
+
+                        int length = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (length < 8) {
+
+                            System.out.println(
+                                    "Password length should be at least 8."
+                            );
+
+                            break;
+                        }
+
+                        password = generator.generatePassword(length);
+
+                        System.out.println(
+                                "Generated Password: " + password
+                        );
+
+                    } else {
+
+                        System.out.println(
+                                "Invalid option."
+                        );
+
+                        break;
+                    }
 
                     if (website.isBlank() ||
                             username.isBlank() ||
